@@ -484,6 +484,7 @@
 				186AA3541962A437004E0B37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		186AA3551962A437004E0B37 /* Build configuration list for PBXNativeTarget "Quartz2DDrawDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +493,7 @@
 				186AA3571962A437004E0B37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

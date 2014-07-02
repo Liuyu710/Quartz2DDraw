@@ -17,6 +17,9 @@
  */
 @interface LYDrawView : UIView
 
+// 截图
+@property (nonatomic, strong) UIImage *image;
+
 // 线的颜色，默认 kDefaultLineColor
 @property (nonatomic, strong) UIColor *lineColor;
 
@@ -28,5 +31,21 @@
 
 // 是否是橡皮擦，默认不是
 @property (nonatomic, getter = isEraser) BOOL eraser;
+
+// 清除屏幕
+- (void)clean;
+
+#pragma mark - Undo/Redo 功能
+
+// 清空Redo Undo操作
+//- (void)clearUndoAndRedo;
+//
+////
+//- (BOOL)canUndo;
+//- (void)undo;
+//
+////
+//- (BOOL)canRedo;
+//- (void)redo;
 
 @end

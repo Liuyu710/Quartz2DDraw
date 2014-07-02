@@ -23,11 +23,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-
+    self.view.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
+    
     // 画板
     self.drawView = [[LYDrawView alloc] initWithFrame:self.view.bounds];
     self.drawView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.drawView.backgroundColor = [UIColor grayColor];
     [self.view addSubview:self.drawView];
     
     // 宽度选择
@@ -91,6 +91,32 @@
         [button addTarget:self action:@selector(selectedEraser:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
     } while (0);
+    
+    // 清零
+    do {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.layer.borderColor = [UIColor blackColor].CGColor;
+        button.layer.borderWidth = 0.5;
+        button.frame = CGRectMake(110, 120, 100, 30);
+        button.titleLabel.adjustsFontSizeToFitWidth = YES;
+        [button setTitle:[NSString stringWithFormat:@"清零"] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(cleanDrawView:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:button];
+    } while (0);
+    
+    // 保存
+    do {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.layer.borderColor = [UIColor blackColor].CGColor;
+        button.layer.borderWidth = 0.5;
+        button.frame = CGRectMake(210, 120, 100, 30);
+        button.titleLabel.adjustsFontSizeToFitWidth = YES;
+        [button setTitle:[NSString stringWithFormat:@"保存到相册"] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(saveDrawViewToAlbum:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:button];
+    } while (0);
 }
 
 - (void)didReceiveMemoryWarning
@@ -130,5 +156,18 @@
         [button setTitle:[NSString stringWithFormat:@"使用橡皮擦"] forState:UIControlStateNormal];
     }
 }
+
+- (void)cleanDrawView:(UIButton *)button
+{
+    [self.drawView clean];
+}
+
+- (void)saveDrawViewToAlbum:(UIButton *)button
+{
+    if (self.drawView.image) {
+        UIImageWriteToSavedPhotosAlbum(self.drawView.image, nil, nil, nil);
+    }
+}
+
 
 @end
