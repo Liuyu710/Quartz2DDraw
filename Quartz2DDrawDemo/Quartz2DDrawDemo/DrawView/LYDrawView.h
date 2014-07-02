@@ -35,7 +35,7 @@
 // 清除屏幕
 - (void)clean;
 
-#pragma mark - Undo/Redo 功能
+//#pragma mark - Undo/Redo 功能
 
 // 清空Redo Undo操作
 //- (void)clearUndoAndRedo;
