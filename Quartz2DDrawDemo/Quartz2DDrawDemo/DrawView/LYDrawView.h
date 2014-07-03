@@ -36,7 +36,7 @@
 - (void)clean;
 
 //#pragma mark - Undo/Redo 功能
-
+// 制作Redo Undo功能，需要封装线条的类，将color属性保存在其中。  然后用两个动态数据即可完成Undo Redo功能。
 // 清空Redo Undo操作
 //- (void)clearUndoAndRedo;
 //
